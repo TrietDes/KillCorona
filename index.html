@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kill Corona</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            margin-top: 20px;
+            overflow: hidden;
+            text-align: center;
+        }
+        canvas{
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <script src="game.js"></script>
+    <script src="tank.js"></script>
+    <script src="gun.js"></script>
+    <script src="bullet.js"></script>
+
+    <script>
+        let gameObj = new game();
+        gameObj.init();
+    </script>
+</body>
+
+</html>
