@@ -1,49 +1,40 @@
-const damage = 1000;
-const gunR = 10;
-const gunLength = 25;
-const time = 1000; //time to create a new bullet when hold mouse
+const gunLength = 35;
 
 function gun(game, tank){
     this.game = game;
     this.tank = tank;
 
-    this.gunX = null;
-    this.gunY = null;
-    this.gunR = null;
-    this.damage = null;
+    this.x = this.tank.x + this.tank.width/2;
+    this.y = this.tank.y + this.tank.height/2;
+    this.r = 12;
+    this.damage = 1;
 
     this.init = function(){
-        this.setValue();
         this.draw();
     }
 
-    this.setValue = function(){
-        this.damage = damage;
-        this.gunX = this.tank.tankX + this.tank.tankWidth/2;
-        this.gunY = this.tank.tankY + this.tank.tankHeight/2;
-        this.gunR = gunR;
-    }
-
     this.update = function(){
-        this.gunX = this.tank.tankX + this.tank.tankWidth/2;
-        this.gunY = this.tank.tankY + this.tank.tankHeight/2;
+        if(this.tank.hp <= 0) return;
+        this.x = this.tank.x + this.tank.width/2;
+        this.y = this.tank.y + this.tank.height/2;
     }
 
     this.draw = function(){
+        if(this.tank.hp <= 0) return;
         //Draw circle
-        this.game.context.fillStyle = "#a23737";
-        this.game.context.beginPath();
-        this.game.context.arc(this.gunX, this.gunY, this.gunR, 0, 2*Math.PI);
-        this.game.context.fill();
-        this.game.context.closePath();
+        this.game.ctx.beginPath();
+        this.game.ctx.fillStyle = "#a23737";
+        this.game.ctx.arc(this.x, this.y, this.r, 0, 2*Math.PI);
+        this.game.ctx.fill();
+        this.game.ctx.closePath();
         //Draw gun
-        this.game.context.beginPath();
-        this.game.context.moveTo(this.gunX, this.gunY);
-        let endPoint = createEndPoint(gunLength, this.gunX, this.gunY, mouseX, mouseY);
-        this.game.context.lineTo(endPoint.x, endPoint.y);
-        this.game.context.strokeStyle = "#a23737";
-        this.game.context.lineWidth = 7;
-        this.game.context.stroke();
-        this.game.context.closePath();
+        this.game.ctx.beginPath();
+        this.game.ctx.moveTo(this.x, this.y);
+        let endPoint = createEndPoint(gunLength, this.x, this.y, mouseX, mouseY);
+        this.game.ctx.lineTo(endPoint.x, endPoint.y);
+        this.game.ctx.strokeStyle = "#a23737";
+        this.game.ctx.lineWidth = 9;
+        this.game.ctx.stroke();
+        this.game.ctx.closePath();
     }
 }
