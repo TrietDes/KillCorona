@@ -64,7 +64,7 @@ function Firework(game, sx, sy, tx, ty) {
     this.draw = function () {
         if(this.game.tankObj.hp <= 0) return;
         this.game.ctx.beginPath();
-        this.game.ctx.lineWidth = 5;
+        this.game.ctx.lineWidth = particleWidth;
         // move to the last tracked coordinate in the set, then draw a line to the current x and y
         this.game.ctx.moveTo(this.coordinates[this.coordinates.length - 1][0], this.coordinates[this.coordinates.length - 1][1]);
         this.game.ctx.lineTo(this.x, this.y);

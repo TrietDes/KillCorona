@@ -45,11 +45,13 @@ function Particle(game, x, y ) {
     // draw particle
     this.draw = function() {
         this.game.ctx.beginPath();
+        this.game.ctx.lineWidth = particleWidth;
         // move to the last tracked coordinates in the set, then draw a line to the current x and y
         this.game.ctx.moveTo( this.coordinates[ this.coordinates.length - 1 ][ 0 ], this.coordinates[ this.coordinates.length - 1 ][ 1 ] );
         this.game.ctx.lineTo( this.x, this.y );
         this.game.ctx.strokeStyle = 'hsla(' + this.hue + ', 100%, ' + this.brightness + '%, ' + this.alpha + ')';
         this.game.ctx.stroke();
+        this.game.ctx.closePath();
     }
     
 }

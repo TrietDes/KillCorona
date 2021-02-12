@@ -29,22 +29,22 @@ function tank(game) {
             this.game.endGame();
             return;
         }
-        if (keys[37]) {
+        if (keys[37] || keys[65]) {
             if (this.velX > -speed) {
                 this.velX--;
             }
         }
-        if (keys[38]) {
+        if (keys[38] || keys[87]) {
             if (this.velY > -speed) {
                 this.velY--;
             }
         }
-        if (keys[39]) {
+        if (keys[39] || keys[68]) {
             if (this.velX < speed) {
                 this.velX++;
             }
         }
-        if (keys[40]) {
+        if (keys[40] || keys[83]) {
             if (this.velY < speed) {
                 this.velY++;
             }

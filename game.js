@@ -4,6 +4,8 @@ var mouseX = 0;
 var mouseY = 0;
 var score = 0;
 
+var particleWidth = 2;
+
 var fireworks = [];
 var viruses = [];
 var particles = [];
